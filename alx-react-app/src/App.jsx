@@ -1,7 +1,12 @@
+import WelcomeMessage from './WelcomeMessage';
 import './App.css';
 
-function App()
-  
-  return <div>Hello World!</div>;
+function App() {
+  return (
+    <div>
+      <WelcomeMessage />
+    </div>
+  );
+}
 
-export default App
+export default App;
