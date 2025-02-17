@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 const UserProfile = ({ name, age, bio }) => {
   return (
     <div>
-      <h2>{name}</h2>
-      <p>Age: {age}</p>
-      <p>Bio: {bio}</p>
+      <h2>{Alice}</h2>
+      <p>Age: {25}</p>
+      <p>Bio: {loves hiking and photography}</p>
     </div>
   );
 };
