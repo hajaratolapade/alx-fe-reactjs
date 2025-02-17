@@ -1,5 +1,4 @@
 import React from "react";
-import Userprofile from "./components/UserProfile";
 import PropTypes from "prop-types";
 
 const UserProfile = ({ name, age, bio }) => {
@@ -11,13 +10,6 @@ const UserProfile = ({ name, age, bio }) => {
     </div>
   );
 };
-
-function App() {
-  return (
-    <div>
-      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
-    </div>
-  );
 
 UserProfile.propTypes = {
   name: PropTypes.string.isRequired,

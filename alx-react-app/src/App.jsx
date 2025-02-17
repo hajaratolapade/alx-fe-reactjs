@@ -8,12 +8,14 @@ import "./App.css";
 
 function App() {
     return (
-        <div>
+        <>
+        <div> hello </div>
             <Header />
             <MainContent />
-            <Footer />
             <WelcomeMessage />
-        </div>
+            <UserProfile name= "Alice" age= "25" bio= "Loves hiking and photography" />
+            <Footer />
+            </>
     );
 }
 
