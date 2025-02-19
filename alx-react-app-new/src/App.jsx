@@ -4,6 +4,7 @@ import MainContent from "./components/MainContent";
 import WelcomeMessage from "./components/WelcomeMessage";
 import UserProfile from "./components/UserProfile";
 import "./App.css";
+import Counter from "./components/Counter";
 import Footer from "./components/Footer";
 
 function App() {
