@@ -9,7 +9,7 @@ import "./App.css";
 import Footer from "./components/Footer";
 
 function App() {
-    const userData = { name: "Hajarat Olapade", email: "hajaratolapade@outlook.com" };
+    const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
     return (
         <>
             <Header />
