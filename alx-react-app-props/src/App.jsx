@@ -1,24 +1,34 @@
-import React from "react";
+
+import React, { useState } from "react";
 import Header from "./components/Header";
 import MainContent from "./components/MainContent";
 import WelcomeMessage from "./components/WelcomeMessage";
-import ProfilePage from './ProfilePage';
-import UserProfile from "./components/UserProfile";
-import "./App.css";
+import UserContext from "./UserContext";
+import ProfilePage from "./components/ProfilePage";
 import Counter from "./components/Counter";
 import Footer from "./components/Footer";
+import UserProfile from "./components/UserProfile";  // Import UserProfile
+import "./App.css";
 
 function App() {
-    const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+    const [userData] = useState({
+        name: "Jane Doe",
+        email: "jane.doe@example.com",
+        age: 25,
+    });
 
-    return <ProfilePage userData={userData} />;
-        <>
+    return (
+        <div>
+            <UserContext.Provider value={userData}>
+                <ProfilePage />
+            </UserContext.Provider>
             <Header />
             <MainContent />
             <WelcomeMessage />
-            <UserProfile name= "Alice" age= "25" bio= "Loves hiking and photography" />
+            <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
             <Footer />
-            </>
+        </div>
+    );
 }
 
 export default App;

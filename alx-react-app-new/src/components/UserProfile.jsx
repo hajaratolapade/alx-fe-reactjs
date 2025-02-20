@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const UserProfile = ({ name, age, bio }) => {
+function UserProfile ({ name, age, bio }) {
   return (
   <div style={{ border: '1px solid gray', padding: '10px', margin: '10px', borderRadius: '5px' }}>
     <h2 style={{ color: 'blue' }}>{props.name}</h2>
