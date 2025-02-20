@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import MainContent from "./components/MainContent";
 import WelcomeMessage from "./components/WelcomeMessage";
 import UserProfile from "./components/UserProfile";
-import UserContext from "./Context/UserContext";
+import UserContext from "./components/UserContext";
 import ProfilePage from "./components/ProfilePage";
 import Counter from "./components/Counter";
 import Footer from "./components/Footer";

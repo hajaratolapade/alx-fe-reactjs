@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import UserContext from "../context/UserContext";
+import UserContext from "./UserContext";
 
 function UserDetails() {
     const user = useContext(UserContext);
 
     if (!user) {
-        return <p>Loading...</p>; // Handle missing data gracefully
+        return <p>Loading...</p>;
     }
 
     return (
