@@ -7,7 +7,6 @@ import UserContext from "./UserContext";
 import ProfilePage from "./components/ProfilePage";
 import Counter from "./components/Counter";
 import Footer from "./components/Footer";
-import UserProfile from "./components/UserProfile";  // Import UserProfile
 import "./App.css";
 
 function App() {
