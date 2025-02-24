@@ -6,15 +6,17 @@ import AddRecipeForm from './components/AddRecipeForm'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <Router> {/* Wrap Routes with Router */}
+    <Router>
+    <div>
+      <h1>Recipe Sharing App</h1>
+
       <Routes>
         <Route path="/" element={<RecipeList />} /> 
         <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
         <Route path="/add-recipe" element={<AddRecipeForm />} />
       </Routes>
+      </div>
     </Router>
   )
 }
