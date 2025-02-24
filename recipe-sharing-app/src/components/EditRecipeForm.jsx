@@ -1,15 +1,29 @@
+import { useState } from 'react';
 import { useRecipeStore } from './recipeStore';
 
 const EditRecipeForm = ({ recipeId }) => {
-  const recipe = useRecipeStore(state =>
-    state.recipes.find(recipe => recipe.id === recipeId)
-  );
+  const [comment, setComment] = useState('');
+  const updateRecipe = useRecipeStore(state => state.updateRecipe);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!comment.trim()) return;
+
+    updateRecipe({ id: recipeId, comment });
+    setComment('');
+  };
 
   return (
     <div>
-      <h1>{recipe.title}</h1>
-      <form action="#">
-        <input type="text" placeholder='add comment'/>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Add comment"
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+        />
+        <button type="submit">Save</button>
       </form>
     </div>
   );
