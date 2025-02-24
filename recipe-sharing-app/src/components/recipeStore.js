@@ -7,3 +7,5 @@ export const useRecipeStore = create((set) => ({
     recipes: state.recipes.filter((recipe) => recipe.id !== recipeId),
   })),
 }));
+
+export default useRecipeStore;
