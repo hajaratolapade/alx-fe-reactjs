@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const RegistrationForm = () => {
-  // Local state for form fields (controlled components)
+  // Local state for form fields
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -17,14 +17,6 @@ const RegistrationForm = () => {
     password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
   });
 
-  // Handle direct state change when input values change
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   return (
     <Formik
       initialValues={formData}
@@ -32,23 +24,26 @@ const RegistrationForm = () => {
       enableReinitialize
       onSubmit={(values, { setSubmitting }) => {
         console.log("Form Data", values);
-        setFormData(values); // Update local state
+        setFormData(values);
         setSubmitting(false);
         alert("Registration successful!");
       }}
     >
-      {({ isSubmitting }) => (
+      {({ values, handleChange, isSubmitting }) => (
         <Form className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
           <h2 className="text-xl font-semibold mb-4">User Registration</h2>
 
           {/* Username Field */}
           <div className="mb-4">
             <label htmlFor="username" className="block text-sm font-medium">Username:</label>
-            <Field
+            <input
               type="text"
               name="username"
-              value={formData.username} // Controlled input
-              onChange={handleInputChange}
+              value={values.username} // Explicitly controlled
+              onChange={(e) => {
+                handleChange(e); 
+                setFormData({ ...values, username: e.target.value }); 
+              }}
               className="w-full p-2 border rounded"
             />
             <ErrorMessage name="username" component="div" className="text-red-500 text-sm" />
@@ -57,11 +52,14 @@ const RegistrationForm = () => {
           {/* Email Field */}
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium">Email:</label>
-            <Field
+            <input
               type="email"
               name="email"
-              value={formData.email} // Controlled input
-              onChange={handleInputChange}
+              value={values.email} // Explicitly controlled
+              onChange={(e) => {
+                handleChange(e); 
+                setFormData({ ...values, email: e.target.value }); 
+              }}
               className="w-full p-2 border rounded"
             />
             <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
@@ -70,11 +68,14 @@ const RegistrationForm = () => {
           {/* Password Field */}
           <div className="mb-4">
             <label htmlFor="password" className="block text-sm font-medium">Password:</label>
-            <Field
+            <input
               type="password"
               name="password"
-              value={formData.password} // Controlled input
-              onChange={handleInputChange}
+              value={values.password} // Explicitly controlled
+              onChange={(e) => {
+                handleChange(e); 
+                setFormData({ ...values, password: e.target.value }); 
+              }}
               className="w-full p-2 border rounded"
             />
             <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
