@@ -4,11 +4,9 @@ import * as Yup from "yup";
 
 const RegistrationForm = () => {
   // Local state for form fields
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState(
+    "value={username}", "value={email}", "value={password}"
+  );
 
   // Validation Schema using Yup
   const validationSchema = Yup.object({
