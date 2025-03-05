@@ -23,11 +23,11 @@ const RegistrationForm = () => {
       validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting }) => {
         console.log("Form Data", values);
-        setFormData(values); // Update local state with submitted data
-        setSubmitting(false); // Stops the loading state
+        setFormData(values); // Update local state
+        setSubmitting(false);
       }}
     >
-      {({ values, isSubmitting, handleChange }) => (
+      {({ values, handleChange, isSubmitting }) => (
         <Form className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
           <h2 className="text-xl font-semibold mb-4">User Registration</h2>
 
@@ -37,11 +37,8 @@ const RegistrationForm = () => {
             <Field
               type="text"
               name="username"
-              value={values.username}
-              onChange={(e) => {
-                handleChange(e);
-                setFormData({ ...formData, username: e.target.value }); // Update local state
-              }}
+              value={values.username} // Explicitly setting value
+              onChange={handleChange}
               className="w-full p-2 border rounded"
             />
             <ErrorMessage name="username" component="div" className="text-red-500" />
@@ -53,11 +50,8 @@ const RegistrationForm = () => {
             <Field
               type="email"
               name="email"
-              value={values.email}
-              onChange={(e) => {
-                handleChange(e);
-                setFormData({ ...formData, email: e.target.value }); // Update local state
-              }}
+              value={values.email} // Explicitly setting value
+              onChange={handleChange}
               className="w-full p-2 border rounded"
             />
             <ErrorMessage name="email" component="div" className="text-red-500" />
@@ -69,11 +63,8 @@ const RegistrationForm = () => {
             <Field
               type="password"
               name="password"
-              value={values.password}
-              onChange={(e) => {
-                handleChange(e);
-                setFormData({ ...formData, password: e.target.value }); // Update local state
-              }}
+              value={values.password} // Explicitly setting value
+              onChange={handleChange}
               className="w-full p-2 border rounded"
             />
             <ErrorMessage name="password" component="div" className="text-red-500" />
