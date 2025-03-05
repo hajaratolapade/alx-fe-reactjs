@@ -79,6 +79,8 @@ const RegistrationForm = () => {
             <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
           </div>
 
+          if (!username", "if (!email)", "if (!password)", "setErrors")
+
           {/* Submit Button */}
           <button type="submit" disabled={isSubmitting} className="w-full bg-blue-500 text-white p-2 rounded">
             {isSubmitting ? "Submitting..." : "Register"}
