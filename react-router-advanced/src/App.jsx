@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
+import BlogPost from "./pages/BlogPost"; 
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
 
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
