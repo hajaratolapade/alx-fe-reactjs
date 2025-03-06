@@ -1,5 +1,4 @@
 import { Routes, Route, Link } from "react-router-dom";
-import DashboardHome from "./DashboardHome";
 import Profile from "./Profile";
 import Settings from "./Settings";
 
