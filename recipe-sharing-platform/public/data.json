@@ -1,0 +1,13 @@
+{
+    "recipes": [
+      {
+        "id": 1,
+        "name": "Spaghetti Bolognese",
+        "image": "/images/spaghetti.jpg",
+        "description": "A delicious classic Italian dish.",
+        "ingredients": ["200g spaghetti", "100g minced beef", "1 onion", "2 tomatoes", "Salt", "Pepper"],
+        "instructions": ["Boil the spaghetti.", "Cook minced beef with onions.", "Add tomatoes and simmer.", "Mix with spaghetti and serve."]
+      }
+    ]
+  }
+  

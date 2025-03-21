@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const recipes = [
-  { id: "1", title: "Spaghetti Bolognese", image: "https://source.unsplash.com/400x300/?pasta,food" },
-  { id: "2", title: "Chicken Curry", image: "https://source.unsplash.com/400x300/?curry,food" }
+  { id: "1", name: "Spaghetti Bolognese", image: "https://source.unsplash.com/400x300/?pasta,food" },
+  { id: "2", name: "Chicken Curry", image: "https://source.unsplash.com/400x300/?curry,food" }
 ];
 
 const Home = () => {
