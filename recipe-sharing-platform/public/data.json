@@ -1,13 +1,46 @@
 {
-    "recipes": [
-      {
-        "id": 1,
-        "name": "Spaghetti Bolognese",
-        "image": "/images/spaghetti.jpg",
-        "description": "A delicious classic Italian dish.",
-        "ingredients": ["200g spaghetti", "100g minced beef", "1 onion", "2 tomatoes", "Salt", "Pepper"],
-        "instructions": ["Boil the spaghetti.", "Cook minced beef with onions.", "Add tomatoes and simmer.", "Mix with spaghetti and serve."]
-      }
-    ]
-  }
-  
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Spaghetti Bolognese",
+      "image": "/images/spaghetti.jpg",
+      "description": "A delicious classic Italian dish.",
+      "ingredients": [
+        "200g spaghetti",
+        "100g minced beef",
+        "1 onion",
+        "2 tomatoes",
+        "Salt",
+        "Pepper"
+      ],
+      "instructions": [
+        "Boil the spaghetti.",
+        "Cook minced beef with onions.",
+        "Add tomatoes and simmer.",
+        "Mix with spaghetti and serve."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Chicken Curry",
+      "image": "/images/chicken-curry.jpg",
+      "description": "A flavorful and spicy chicken dish.",
+      "ingredients": [
+        "2 chicken breasts (diced)",
+        "1 onion (chopped)",
+        "2 cloves garlic (minced)",
+        "1 tbsp curry powder",
+        "400ml coconut milk",
+        "Salt & Pepper",
+        "Fresh coriander"
+      ],
+      "instructions": [
+        "Sauté onions and garlic until fragrant.",
+        "Add diced chicken and cook until golden brown.",
+        "Sprinkle curry powder and mix well.",
+        "Pour in coconut milk and let simmer for 20 minutes.",
+        "Season with salt & pepper and garnish with coriander."
+      ]
+    }
+  ]
+}
