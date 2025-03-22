@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import data from "../data.json"; // ✅ Import JSON directly
 
 const RecipeDetail = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
-    fetch("/data.json")
+    fetch(process.env.PUBLIC_URL + "/data.json")
       .then((response) => response.json())
       .then((data) => {
         const foundRecipe = data.recipes.find((item) => item.id.toString() === id);
@@ -14,6 +15,7 @@ const RecipeDetail = () => {
       })
       .catch((error) => console.error("Error fetching recipe:", error));
   }, [id]);
+  
 
   if (!recipe) {
     return <p className="text-center text-red-500">Recipe not found</p>;
