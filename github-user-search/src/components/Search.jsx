@@ -27,7 +27,7 @@ const Search = ({ onSearch, user, loading, error }) => {
 
             {/* Conditional Rendering for API States */}
             {loading && <p>Loading...</p>}
-            {error && <p className="text-red-500">Looks like we can’t find the user</p>}
+            {error && <p className="text-red-500">Looks like we cant find the user</p>}
             {user && (
                 <div className="mt-4 border p-4 rounded text-center">
                     <img
