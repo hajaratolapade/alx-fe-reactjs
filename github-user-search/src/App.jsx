@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Search from "./components/Search"; // Updated to use Search
+import Search from "./components/Search";
 import { fetchGitHubUser } from "./services/githubApi";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         if (data) {
             setUser(data);
         } else {
-            setError("Looks like we can’t find the user"); // Now correctly handled
+            setError("Looks like we can’t find the user");
         }
         setLoading(false);
     };
@@ -24,7 +24,8 @@ function App() {
     return (
         <div className="p-6 max-w-xl mx-auto">
             <h1 className="text-2xl font-bold mb-4">GitHub User Search</h1>
-            <Search onSearch={handleSearch} /> {/* Uses corrected Search.jsx */}
+            <Search onSearch={handleSearch} />
+
             {loading && <p>Loading...</p>}
             {error && <p className="text-red-500">{error}</p>}
             {user && (
@@ -32,12 +33,7 @@ function App() {
                     <img src={user.avatar_url} alt={user.login} className="w-16 h-16 rounded-full" />
                     <p className="mt-2 font-bold">{user.name || user.login}</p>
                     <p>{user.bio || "No bio available"}</p>
-                    <a
-                        href={user.html_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-500"
-                    >
+                    <a href={user.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500">
                         View Profile
                     </a>
                 </div>
