@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Search = ({ onSearch }) => {
+const Search = ({ onSearch, user, loading, error }) => {
     const [username, setUsername] = useState("");
 
     const handleSubmit = (event) => {
@@ -11,6 +11,7 @@ const Search = ({ onSearch }) => {
 
     return (
         <div className="p-4">
+            {/* Search Form */}
             <form onSubmit={handleSubmit} className="flex space-x-2">
                 <input
                     type="text"
@@ -23,9 +24,10 @@ const Search = ({ onSearch }) => {
                     Search
                 </button>
             </form>
+
             {/* Conditional Rendering for API States */}
             {loading && <p>Loading...</p>}
-            {error && <p className="text-red-500">{error}</p>}
+            {error && <p className="text-red-500">Looks like we can’t find the user</p>}
             {user && (
                 <div className="mt-4 border p-4 rounded text-center">
                     <img
