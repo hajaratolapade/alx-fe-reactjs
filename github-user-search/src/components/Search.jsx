@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchAdvancedUserData } from "../services/githubService"; // Updated API function
+import { fetchUserData, fetchAdvancedUserData } from "../services/githubService"; // Updated API function
 
 const Search = () => {
     const [username, setUsername] = useState("");
@@ -16,12 +16,16 @@ const Search = () => {
         setUsers([]);
 
         try {
-            const query = {
-                username,
-                location,
-                minRepos,
-            };
-            const data = await fetchAdvancedUserData(query);
+            let data;
+            if (username && !location && !minRepos) {
+                // Basic search if only username is provided
+                data = await fetchUserData(username);
+                data = data ? [data] : []; // Ensure it is in array format
+            } else {
+                // Advanced search with multiple parameters
+                data = await fetchAdvancedUserData({ username, location, minRepos });
+            }
+    
             if (data.length > 0) {
                 setUsers(data);
             } else {
@@ -30,10 +34,9 @@ const Search = () => {
         } catch (err) {
             setError("Something went wrong while fetching users.");
         }
-
+    
         setLoading(false);
     };
-
     return (
         <div className="p-4 max-w-lg mx-auto">
             <h2 className="text-xl font-bold mb-4 text-center">GitHub User Search</h2>
