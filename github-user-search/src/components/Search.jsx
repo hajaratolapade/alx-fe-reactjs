@@ -1,12 +1,32 @@
 import { useState } from "react";
+import { fetchUserData } from "../services/githubService"; // Import API function
 
-const Search = ({ onSearch, user, loading, error }) => {
+const Search = () => {
     const [username, setUsername] = useState("");
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (username.trim() === "") return;
-        onSearch(username);
+
+        setLoading(true);
+        setError(null);
+        setUser(null);
+
+        try {
+            const data = await fetchUserData(username);
+            if (data) {
+                setUser(data);
+            } else {
+                setError("Looks like we cant find the user");
+            }
+        } catch (err) {
+            setError("Something went wrong");
+        }
+
+        setLoading(false);
     };
 
     return (
@@ -27,7 +47,7 @@ const Search = ({ onSearch, user, loading, error }) => {
 
             {/* Conditional Rendering for API States */}
             {loading && <p>Loading...</p>}
-            {error && <p className="text-red-500">Looks like we cant find the user</p>}
+            {error && <p className="text-red-500">{error}</p>}
             {user && (
                 <div className="mt-4 border p-4 rounded text-center">
                     <img
