@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const SearchBar = ({ onSearch }) => {
-    const [username, setUsername] = useState('');
+    const [username, setUsername] = useState("");
 
-    const handleSearch = () => {
+    const handleSearch = (e) => {
+        e.preventDefault();
         if (username.trim()) {
             onSearch(username);
         }
@@ -11,14 +12,16 @@ const SearchBar = ({ onSearch }) => {
 
     return (
         <form onSubmit={handleSearch} className="flex gap-2">
-            <input 
-                type="text" 
-                placeholder="Enter GitHub username" 
-                value={username} 
-                onChange={(e) => setUsername(e.target.value)} 
+            <input
+                type="text"
+                placeholder="Enter GitHub username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 className="border p-2 rounded w-full"
             />
-            <button type="submit" className="bg-blue-500 text-white p-2 rounded">Search</button>
+            <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+                Search
+            </button>
         </form>
     );
 };

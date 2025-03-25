@@ -12,7 +12,7 @@ function App() {
         setError(null);
         setUser(null);
 
-        const data = await fetchUserData(username);
+        const data = await fetchGitHubUser(username);
         if (data) {
             setUser(data);
         } else {
