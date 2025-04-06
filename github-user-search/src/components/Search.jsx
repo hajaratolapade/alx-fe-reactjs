@@ -27,7 +27,7 @@ const Search = () => {
             if (data.length > 0) {
                 setUsers(data);
             } else {
-                setError("No users found matching your criteria.");
+                setError("Looks like we cant find the user");
             }
         } catch (err) {
             setError("Something went wrong while fetching users.");
