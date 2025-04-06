@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchUserData, fetchAdvancedUserData } from "../services/githubService"; // Updated API function
+import { fetchUserData, fetchAdvancedUserData } from "../services/githubService";
 
 const Search = () => {
     const [username, setUsername] = useState("");
@@ -18,11 +18,9 @@ const Search = () => {
         try {
             let data;
             if (username && !location && !minRepos) {
-                // Basic search if only username is provided
                 data = await fetchUserData(username);
-                data = data ? [data] : []; // Ensure it is in array format
+                data = data ? [data] : [];
             } else {
-                // Advanced search with multiple parameters
                 data = await fetchAdvancedUserData({ username, location, minRepos });
             }
     
@@ -41,7 +39,6 @@ const Search = () => {
         <div className="p-4 max-w-lg mx-auto">
             <h2 className="text-xl font-bold mb-4 text-center">GitHub User Search</h2>
 
-            {/* Search Form */}
             <form onSubmit={handleSubmit} className="space-y-3">
                 <input
                     type="text"
@@ -69,11 +66,9 @@ const Search = () => {
                 </button>
             </form>
 
-            {/* Conditional Rendering */}
             {loading && <p>Loading...</p>}
             {error && <p className="text-red-500">{error}</p>}
 
-            {/* Display Search Results */}
             {users.length > 0 && (
                 <div className="mt-4">
                     {users.map((user) => (
